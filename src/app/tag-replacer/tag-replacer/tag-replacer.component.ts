@@ -6,40 +6,39 @@ import { Tags } from 'src/app/shared/models/tags.model';
 @Component({
   selector: 'tagReplacer',
   templateUrl: './tag-replacer.component.html',
-  styleUrls: ['./tag-replacer.component.scss']
+  styleUrls: ['./tag-replacer.component.scss'],
 })
 export class TagReplacerComponent implements OnInit {
+  private inputText = '';
+  private outputText = '';
+  private tags: Tags[] = [{ tag: '{sdfsd}', replacement: 'test' }];
 
-  private inputText = "";
-  private outputText = "";
-  private tags:Tags[]=[{tag:"{sdfsd}",replacement:"test"}];
-
-  displayedColumns: string[] = ['select','tag','replacement'];
+  displayedColumns: string[] = ['select', 'tag', 'replacement'];
   dataSource = new MatTableDataSource<Tags>(this.Tags);
   selection = new SelectionModel<Tags>(true, []);
 
-  constructor() { }
+  constructor() {}
 
-  get InputText(){
+  get InputText() {
     return this.inputText;
   }
 
-  set InputText(value:any){
+  set InputText(value: any) {
     this.inputText = value;
   }
 
-  get OutputText(){
+  get OutputText() {
     return this.outputText;
   }
-  set OutputText(value:any){
+  set OutputText(value: any) {
     this.inputText = value;
   }
 
-  get Tags(){
+  get Tags() {
     return this.tags;
   }
-  set Tags(value:any){
-    this.tags.push(value)
+  set Tags(value: any) {
+    this.tags.push(value);
   }
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -53,7 +52,7 @@ export class TagReplacerComponent implements OnInit {
       this.selection.clear();
       return;
     }
-
+    var test;
     this.selection.select(...this.dataSource.data);
   }
 
@@ -62,10 +61,10 @@ export class TagReplacerComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.tag }`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.tag
+    }`;
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

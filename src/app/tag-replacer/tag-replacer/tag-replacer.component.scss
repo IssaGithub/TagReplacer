@@ -7,16 +7,23 @@ table {
   justify-content: space-between;
 }
 
-.example-label {
+.replacement-label {
   display: table-cell;
   font-size: 14px;
   margin-left: 8px;
   min-width: 120px;
 }
 
-.example-button-row .mat-button-base {
+.list-button-row .mat-button-base {
   margin: 8px 8px 8px 0;
 }
-.example-full-width{
+
+.Text-container{
   width: 100%;
 }
+
+.mat-row {
+    display: inline-flex;
+    min-width: 100%;
+}
+
